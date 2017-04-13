@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@color/yellow_100"
+    >
+
+    <TextView
+        android:text="@string/choix_connection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="20dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/red_900"
+        />
+
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+       >
+
+    <RadioButton
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/deep_orange_800"
+        android:text="@string/password_connection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton_password_connection" />
+
+    <RadioButton
+        android:layout_marginTop="10dp"
+
+        android:textSize="15dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/deep_orange_800"
+        android:text="@string/vocal_connection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton_vocal_connection" />
+
+    <RadioButton
+        android:layout_marginTop="10dp"
+
+        android:textSize="15dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/deep_orange_800"
+        android:text="@string/facial_connection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton_facial_connection" />
+
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/camera"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="left" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/stylo"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+         />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/micro"
+            android:layout_gravity="right"
+       />
+
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:text="@string/connection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_choix_connection"
+        android:layout_marginTop="50dp"
+        android:background="@color/yellow_300"
+        android:textSize="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/red_900"
+        />
+
+</LinearLayout>

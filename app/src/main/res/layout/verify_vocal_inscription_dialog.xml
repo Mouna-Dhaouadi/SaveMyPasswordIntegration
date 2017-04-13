@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="250dp"
+    android:layout_height="match_parent"
+    android:background="@color/yellow_900"
+    >
+
+    <TextView
+    android:layout_width = "fill_parent"
+    android:layout_height = "wrap_content"
+    android:layout_marginBottom = "20dp"
+    android:textSize = "18dp"
+        android:id="@+id/textViewDialog"
+        android:textColor="@color/deep_orange_900"
+        android:fontFamily="sans-serif"
+        ></TextView>
+
+    <Button
+        android:background="@color/yellow_300"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/red_900"
+
+    android:id = "@+id/dialog"
+    android:layout_width = "fill_parent"
+    android:layout_height = "wrap_content"
+    android:text = "@string/yes" >
+    </Button>
+
+
+
+</LinearLayout>

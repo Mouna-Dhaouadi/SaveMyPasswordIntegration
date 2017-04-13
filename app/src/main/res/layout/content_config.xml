@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mouna.inscriptionandconnection.myapplication.ConfigActivity"
+    tools:showIn="@layout/activity_config">
+
+        <RelativeLayout
+            android:id="@+id/content_r2"
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="8dp">
+
+            <com.pkmmte.view.CircularImageView
+                android:id="@+id/imgM"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/girl"
+                app:border="true"
+
+                app:border_color="#EEEEEE"
+                app:border_width="2dp" />
+            <EditText
+                android:hint="@string/NomSite"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:id="@+id/textSiteNameM"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/img" />
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteY="8dp"
+            tools:layout_editor_absoluteX="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/fab_margin">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/link"
+                        android:id="@+id/imageViewLinkAdd"
+
+                        android:layout_weight="0.27" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:hint="@string/lien"
+
+                        android:ems="10"
+                        android:id="@+id/editTextLinkM"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/login"
+                        android:id="@+id/imageViewAdd"
+
+                        android:layout_weight="0.27" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:hint="@string/login"
+                        android:ems="10"
+                        android:id="@+id/editTextM"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/mail"
+                        android:id="@+id/imageEmailAdd"
+
+                        android:layout_weight="0.26" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:inputType="textEmailAddress"
+                        android:ems="10"
+                        android:hint="@string/email"
+                        android:id="@+id/editTextMailM"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:id="@+id/imagepasswrdAdd"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/mdp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        android:hint="@string/motDP"
+                        android:ems="10"
+                        android:id="@+id/editPasswdM" />
+
+
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:max="5"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textViewM"
+                        android:layout_width="145dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.98"
+                        android:visibility="invisible"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/refresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="#fff"
+                        android:visibility="invisible"
+
+                        app:srcCompat="@android:drawable/btn_minus" />
+
+
+                </LinearLayout>
+
+
+                <Button
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Ajouter"
+                    android:layout_marginLeft="115dp"
+                    android:shadowRadius="0"/>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+
+
+</LinearLayout>

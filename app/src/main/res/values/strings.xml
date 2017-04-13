@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">Save My Password </string>
+    <string name="start">Commençer </string>
+
+    <string name="pref_previously_started">previously Started</string>
+    <string name="vocal">vocal</string>
+    <string name="password">password</string>
+    <string name="facial">facial</string>
+    <string name="vocalPassword">vocalPassword</string>
+
+    <string name="inscrbedVocally">inscribedVocally</string>
+    <string name="inscribedFacially">inscribedFacially</string>
+    <string name="inscribedPW">inscribedPW</string>
+
+    <string name="choix_inscription">Veuillez choisir la façon avec laquelle vous voulez vous inscrire et vous connecter </string>
+    <string name="password_inscription"> Inscription et connection en utilisant un mot de passe </string>
+    <string name="vocal_inscription"> Inscription et connection en utilisant la reconnaissance vocale  </string>
+    <string name="facial_inscription"> Inscription et connection en utilisant la reconnaissance faciale </string>
+
+
+    <string name="choix_connection">Veuillez choisir la façon avec laquelle vous voulez  vous connecter </string>
+    <string name="password_connection"> Connection en utilisant un mot de passe </string>
+    <string name="vocal_connection"> Connection en utilisant la reconnaissance vocale  </string>
+    <string name="facial_connection"> Connection en utilisant la reconnaissance faciale </string>
+
+
+    <string name="inscription">inscription</string>
+    <string name="connection"> connection </string>
+
+
+    <string name="enterPassword">Veuillez Entrer un mot de passe </string>
+    <string name="connection_text_view"> Veuillez entrer votre mot de passe </string>
+
+    <string name="FauxVOCAL">La reconnaissance Vocale a échouée! veuillez réessayer</string>
+    <string name="FauxMDP">Le mot de passe que vous venez d\'entrer est faux! Veuillez Réessayer </string>
+    <string name="connexionEchouée">Connexion Echouée! </string>
+
+    <string name="enterVocal">Veuillez vous inscrire vocalement </string>
+    <string name="startTalking">Commençez à parler</string>
+    <string name="chooseItem">Choisir un mot pour vous inscrire </string>
+    <string name="Vocalconnection_text_view">Veuillez vous connecter Vocalement </string>
+    <string name="VocalConnexionEchouée">Connexion Echouée, Veuillez Réessayer </string>
+
+    <string name="yes">oui</string>
+    <string name="ok">ok</string>
+    <string name="choose_another_incription">Choisir Une autre Inscription </string>
+
+    <string name="MustchooseConnection"> Vous devez choisir comment vous voulez vous connecter </string>
+    <string name="MustchooseInscription"> Vous devez choisir comment vous voulez vous inscrire </string>
+    <string name="MustChooseTitle">Vous n\'avez rien choisi! </string>
+
+    <string name="NonInscritTitle">Vous n\'etes pas inscrit! </string>
+    <string name="NonInscritFaciale">"Vous n'etes pas inscrit avec la reconnaissance faciale . Voulez vous vous inscrire avec la reconnaissance faciale  ?"</string>
+    <string name="NonInscritVocale">"Vous n'etes pas inscrit avec la reconnaissance vocale . Voulez vous vous inscrire avec la reconnaissance vocale  ?"</string>
+    <string name="NonInscritMDP">"Vous n'etes pas inscrit en utilisant un mot de passe  . Voulez vous vous inscrire en utilisant un mot de passe  ?"</string>
+
+    <string name="Confirmation">Confirmation</string>
+    <string name="DemandeInscription"> Vous allez vous inscrire avec :</string>
+
+    <string name="InscriptionImpossible">Inscription Impossible</string>
+    <string name="autreInscription">Votre téléphone ne supporte pas ce type d\'inscription. S\'inscrire autrement ?</string>
+
+
+    <string name="action_settings">Parametres</string>
+    <string name="title_activity_add">Ajouter</string>
+    <string name="lien">Lien du site</string>
+    <string name="email">Email</string>
+    <string name="motDP">Mot de passe</string>
+    <string name="NomSite">Nom du site</string>
+    <string name="login">Login</string>
+    <string name="AjoutP">Ajouter</string>
+    <string name="dateModif">Date de la derniere modification</string>
+    <string name="Ajouter">Ajouter</string>
+    <string name="title_activity_detaill">Détailles</string>
+    <string name="title_activity_config">Configuration</string>
+    <string name="maj">Mettre a jour</string>
+    <string name="choisirUneIcone">choisir une icon</string>
+    <string name="telecharger">Telecharger</string>
+
+
+</resources>

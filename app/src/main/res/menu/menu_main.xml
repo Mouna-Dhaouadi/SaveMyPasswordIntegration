@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context="com.example.imen.com.example.mouna.inscriptionandconnection.myapplication.MainActivity">
+    <group android:id="@+id/group"
+
+        >
+        <item android:id="@+id/group_item1"
+            android:onClick="onGroupItemClick"
+            android:title="Français"
+             />
+        <item android:id="@+id/group_item2"
+            android:onClick="onGroupItemClick"
+            android:title="English"
+             />
+        <item android:id="@+id/group_item3"
+            android:onClick="onGroupItemClick"
+            android:title="Deutsch"
+            />
+    </group>
+    <item
+        android:id="@+id/backup"
+        android:orderInCategory="100"
+        android:icon="@drawable/backup"
+        android:title="@string/action_settings"
+        app:showAsAction="always" />
+
+</menu>
