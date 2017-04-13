@@ -67,9 +67,11 @@ public class VocalConnectionActivity  extends AppCompatActivity implements View.
                     }
 
                     if (   hashedTrial.equals(password)     ) {
+                             success=true;
                         //On doit le connecter
-                        Toast.makeText(this, "Connection Reussie", Toast.LENGTH_LONG).show();
-                        success=true;
+                        Intent intent =new Intent( VocalConnectionActivity.this, ListEnregistrements.class);
+                            startActivity(intent);
+                       
                         break;
                     }
 
