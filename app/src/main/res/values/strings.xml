@@ -1,6 +1,10 @@
 <resources>
+
+
     <string name="app_name">Save My Password </string>
     <string name="start">Commençer </string>
+
+    <string name="subscription_key">780379a1c0f34296bcb25e21675fd41a</string>
 
     <string name="pref_previously_started">previously Started</string>
     <string name="vocal">vocal</string>
@@ -76,6 +80,24 @@
     <string name="maj">Mettre a jour</string>
     <string name="choisirUneIcone">choisir une icon</string>
     <string name="telecharger">Telecharger</string>
+    <string name="title_activity_facila_inscription">FacialInscriptionActivity</string>
+    <string name="title_activity_person">PersonActivity</string>
 
+    <!-- Common in all activities -->
+    <string name="progress_dialog_title">Please wait</string>
+    <string name="view_log">View Log</string>
+    <!-- Warning messages -->
+    <string name="person_name_empty_warning_message">Person name cannot be empty</string>
+    <string name="no_face_to_group">No faces to group</string>
+    <string name="no_person_group_selected_for_identification_warning">No person group selected</string>
+    <string name="face_cannot_be_identified">Unknown person</string>
+    <string name="user_provided_person_name">Person name</string>
+    <string name="user_provided_description_data">User data</string>
+    <string name="user_provided_person_group_name">Person group name</string>
+    <string name="user_provided_person_group_description_data">User data</string>
+    <string name="title_activity_add_face_to_person">AddFaceToPersonActivity</string>
+    <string name="title_activity_select_image">SelectImageActivity</string>
+    <string name="title_activity_person_group">PersonGroupActivity</string>
+    <string name="title_activity_facial_connection">FacialConnectionActivity</string>
 
 </resources>
