@@ -34,8 +34,8 @@ public class ConnectionChoiceActivity extends AppCompatActivity implements View.
 
         if (((RadioButton) findViewById(R.id.radioButton_facial_connection)).isChecked()) {
             if (PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString( getString(R.string.inscribedFacially), "").equals(getString(R.string.yes))) {
-                // intent = new Intent(ConnectionChoiceActivity.this,FacialConnectionActivity.class);
-                // startActivity(intent);
+                intent = new Intent(ConnectionChoiceActivity.this,FacialConnectionActivity.class);
+                startActivity(intent);
             } else {
 
                new ShouldInscribeDialog(ConnectionChoiceActivity.this, getString(R.string.NonInscritFaciale)).show();

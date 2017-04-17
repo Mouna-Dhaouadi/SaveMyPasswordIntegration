@@ -35,8 +35,8 @@ public class InscriptionChoiceActivity extends AppCompatActivity implements View
         if ( ((RadioButton)findViewById(R.id.radioButton_facial_inscription)).isChecked() )
         {
            // don't forget to put this with the code:  edit.putString( getString(R.string.inscribedFacially), getString(R.string.yes));
-           // intent = new Intent(InscriptionChoiceActivity.this,FacialInscriptionActivity.class);
-            //startActivity(intent);
+           intent = new Intent(InscriptionChoiceActivity.this,FacialInscriptionActivity.class);
+            startActivity(intent);
 
         }
         else
@@ -46,11 +46,17 @@ public class InscriptionChoiceActivity extends AppCompatActivity implements View
                 startActivity(intent);
 
             }
-        else  if ( ((RadioButton)findViewById(R.id.radioButton_password_inscription)).isChecked()  ) {
+        else
+            if ( ((RadioButton)findViewById(R.id.radioButton_password_inscription)).isChecked()  ) {
                 intent = new Intent(InscriptionChoiceActivity.this,PasswordInscriptionActivity.class);
                 startActivity(intent);
 
             }
+            else
+                if (((RadioButton)findViewById(R.id.radioButton_facial_inscription)).isChecked()){
+                    intent = new Intent(InscriptionChoiceActivity.this,FacialInscriptionActivity.class);
+                    startActivity(intent);
+                }
 
         else {
                 new MyAlertDialog(InscriptionChoiceActivity.this, getString(R.string.MustChooseTitle),getString(R.string.MustchooseInscription)).show();
