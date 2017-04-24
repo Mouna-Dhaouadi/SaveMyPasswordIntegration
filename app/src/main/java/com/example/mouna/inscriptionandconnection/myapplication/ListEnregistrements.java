@@ -1,34 +1,34 @@
 package com.example.mouna.inscriptionandconnection.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
-import com.example.mouna.inscriptionandconnection.R;
-
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+
+import com.example.mouna.inscriptionandconnection.R;
 
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 
 public class ListEnregistrements extends AppCompatActivity {
 
-    static ArrayList<SiteModel> sites ;
+    static List<Enregistrement> enregistrements ;
+    static DatabaseHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,53 +38,63 @@ public class ListEnregistrements extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-        sites= new ArrayList<SiteModel>();
-        SiteModel m=new SiteModel("facebook","facebook.com",new Date(),"fhdskh","imen","iman.tra96@gmail.com",getIcon());
-        for(int i=0;i<10;i++)
+        db = new DatabaseHandler(this);
+        if(db.first_Access)
         {
-            sites.add(m);
+            db.initialiseSite(getResources());
         }
 
+        enregistrements= db.getAllEnregistrements();
 
-        RecyclerView rvSites = (RecyclerView) findViewById(R.id.my_recycler_view);
+       RecyclerView rvSites = (RecyclerView) findViewById(R.id.my_recycler_view);
        // RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
        // recyclerView.addItemDecoration(itemDecoration);
+        if(enregistrements != null)
+        {
+            Toast.makeText(this,"I am in",Toast.LENGTH_SHORT);
+            final EnregistrementAdabter adapter = new EnregistrementAdabter(this, enregistrements);
+            RecyclerView.ItemDecoration itemDecoration = new
+                    DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+            rvSites.addItemDecoration(itemDecoration);
+            rvSites.setItemAnimator(new SlideInUpAnimator());
+            rvSites.setAdapter(adapter);
+            rvSites.setLayoutManager(new LinearLayoutManager(this));
+            rvSites.addOnItemTouchListener(new RecyclerItemClickListener(ListEnregistrements.this, rvSites, new RecyclerItemClickListener.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    Intent myIntent = new Intent(ListEnregistrements.this, DetaillActivity.class);
 
-        SIteAdabter adapter = new SIteAdabter(this, sites);
+                    myIntent.putExtra("siteDetaille",  enregistrements.get(position));
 
-        RecyclerView.ItemDecoration itemDecoration = new
-                DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
-        rvSites.addItemDecoration(itemDecoration);
-        rvSites.setItemAnimator(new SlideInUpAnimator());
-        rvSites.setAdapter(adapter);
-        rvSites.setLayoutManager(new LinearLayoutManager(this));
-        rvSites.addOnItemTouchListener(new RecyclerItemClickListener(ListEnregistrements.this, rvSites, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-               Intent myIntent = new Intent(ListEnregistrements.this, DetaillActivity.class);
+                    startActivity(myIntent);
+                }
 
-                myIntent.putExtra("siteDetaille",  sites.get(position));
+                @Override
+                public void onItemLongClick(View view, int position) {
+                     view.setBackgroundColor(Color.RED);
+                    showDiagSupprimer(enregistrements.get(position),position,adapter);
 
-                startActivity(myIntent);
-            }
+                }
 
-            @Override
-            public void onItemLongClick(View view, int position) {
-                // view.setBackgroundColor(Color.RED);
-                Toast.makeText(ListEnregistrements.this, "long click "+position+" "+view.toString(),
-                        Toast.LENGTH_LONG).show();
+            }));
 
+        }
+        else
+        {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setMessage("La liste est vide");
+            alertDialogBuilder.setCancelable(true);
+            alertDialogBuilder.show();
 
-            }
-
-        }));
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListEnregistrements.this, AddActivity.class);
+                Intent intent = new Intent(ListEnregistrements.this,AddActivity.class);
                 startActivity(intent);
+
             }
         });
 
@@ -138,6 +148,29 @@ public class ListEnregistrements extends AppCompatActivity {
 
         }
     }
+    private void showDiagSupprimer(Enregistrement s, int i, EnregistrementAdabter adabter)
+    {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ListEnregistrements.this);
+        alertDialogBuilder.setTitle("Supprimer");
+        alertDialogBuilder.setMessage("Voulez-vous supprimer cet enregistrement");
+        final Enregistrement ss=s;
+        final int ii= i;
+        final EnregistrementAdabter adabterr=adabter;
+        alertDialogBuilder.setPositiveButton("Oui",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                enregistrements.remove(ii);
+                adabterr.notifyDataSetChanged();
+                ListEnregistrements.db.deleteEnregistrement(ss.ID);
+            }});
+        alertDialogBuilder.setNegativeButton("Non",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }});
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.show();
+    }
 
   /*  void setLangChecked(Locale l)
     {
@@ -159,14 +192,7 @@ public class ListEnregistrements extends AppCompatActivity {
 
 
 
-    byte[] getIcon()
-    {
-        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.girl);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        return byteArray;
-    }
+
     void setLocale(String langue)
     {
         Locale myLocale = new Locale(langue);

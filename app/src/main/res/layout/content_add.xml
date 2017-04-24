@@ -1,46 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:orientation="vertical"
-    tools:context="com.example.mouna.inscriptionandconnection.myapplication.AddActivity"
+    tools:context="com.example.imen.myapplication.AddActivity"
     tools:showIn="@layout/activity_add">
+
     <RelativeLayout
         android:id="@+id/content_r2"
         android:layout_width="match_parent"
         android:layout_height="164dp"
+        android:gravity="top"
+        android:background="@color/colorPrimary"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp">
 
         <com.pkmmte.view.CircularImageView
             android:id="@+id/imgAdd"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/girl"
+            android:foregroundGravity="center"
+            android:src="@drawable/lock"
             app:border="true"
 
             app:border_color="#EEEEEE"
             app:border_width="2dp" />
-        <EditText
-        android:hint="@string/NomSite"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:id="@+id/textSiteNameAdd"
+
+        <TextView
+            android:id="@+id/textSiteNameAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignEnd="@+id/imgAdd"
+            android:layout_alignLeft="@+id/imgAdd"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/imgAdd" />
+            android:layout_alignRight="@+id/imgAdd"
+            android:layout_alignStart="@+id/imgAdd"
+            android:layout_below="@+id/imgAdd"
+            android:hint="@string/NomSite"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold" />
     </RelativeLayout>
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,15 +73,16 @@
 
                     android:layout_weight="0.27" />
 
-                <EditText
+                <TextView
+                    android:id="@+id/editTextLinkAdd"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:inputType="textPersonName"
-                    android:hint="@string/lien"
-
+                    android:layout_weight="1"
                     android:ems="10"
-                    android:id="@+id/editTextLinkAdd"
-                    android:layout_weight="1" />
+                    android:hint="@string/lien"
+                    android:inputType="textPersonName"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium.Inverse"
+                    android:textColor="@color/bleu" />
 
             </LinearLayout>
 
@@ -105,7 +120,7 @@
                     android:src="@drawable/mail"
                     android:id="@+id/imageEmailAdd"
 
-                    android:layout_weight="0.26" />
+                    android:layout_weight="0.27" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -126,19 +141,18 @@
 
                 <ImageView
                     android:id="@+id/imagepasswrdAdd"
-                    android:layout_width="32dp"
+                    android:layout_width="61dp"
                     android:layout_height="32dp"
 
                     android:src="@drawable/mdp" />
 
                 <EditText
+                    android:id="@+id/editPasswdAdd"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textPassword"
-                    android:hint="@string/motDP"
                     android:ems="10"
-                    android:id="@+id/editPasswdAdd" />
-
+                    android:hint="@string/motDP"
+                    android:inputType="textPassword" />
 
 
             </LinearLayout>
@@ -163,6 +177,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.98"
                     android:visibility="invisible"
+                    android:layout_marginLeft="10dp"
                      />
 
                 <ImageButton
@@ -183,11 +198,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Ajouter"
                 android:layout_marginLeft="115dp"
-                android:id="@+id/buttonAdd"/>
+                android:id="@+id/buttonAdd"
+                />
 
 
 
         </LinearLayout>
 </ScrollView>
-
 </LinearLayout>
+
+

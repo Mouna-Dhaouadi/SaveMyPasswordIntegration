@@ -1,6 +1,7 @@
 package com.example.mouna.inscriptionandconnection.myapplication;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;

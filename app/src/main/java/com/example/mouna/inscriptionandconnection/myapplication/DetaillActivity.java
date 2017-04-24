@@ -1,10 +1,14 @@
 package com.example.mouna.inscriptionandconnection.myapplication;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.hardware.Sensor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.PasswordTransformationMethod;
@@ -12,16 +16,19 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.example.mouna.inscriptionandconnection.R;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import com.example.mouna.inscriptionandconnection.R;
 
 public class DetaillActivity extends AppCompatActivity {
 
     ImageView icon ;
     TextView nom,lien,login,dateModif,passwd,email;
     CheckBox passAffiche;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +37,9 @@ public class DetaillActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         Intent intent = getIntent();
-        final SiteModel msite = (SiteModel) intent.getExtras().getSerializable("siteDetaille");
+        final Enregistrement msite = (Enregistrement) intent.getExtras().getSerializable("siteDetaille");
         afficher_Site(msite);
+
     passAffiche.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
         @Override
@@ -59,8 +67,25 @@ public class DetaillActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+       lien.setOnClickListener(new redireger(msite.link));
     }
-    void afficher_Site(SiteModel s)
+    class redireger implements View.OnClickListener
+    {
+        String url;
+  redireger(String l)
+  {
+      this.url=l;
+  }
+        @Override
+        public void onClick(View v) {
+            /*if (! url.startsWith("http://") && !url.startsWith("https://"))
+                url = "http://" + url;*/
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(browserIntent);
+
+        }
+    }
+    void afficher_Site(Enregistrement s)
     {
         icon=(ImageView)findViewById(R.id.imgDetaille);
         lien=(TextView)findViewById(R.id.editTextLinkAff);
@@ -77,7 +102,8 @@ public class DetaillActivity extends AppCompatActivity {
         passwd.setText(s.passwd);
         email.setText(s.memail);
 
-        dateModif.setText(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(s.lastModif));
+        dateModif.setText(s.lastModif);
+
 
         Bitmap bmp = BitmapFactory.decodeByteArray(s.icon, 0, s.icon.length);
         icon.setImageBitmap(bmp);

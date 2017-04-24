@@ -8,13 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.mouna.inscriptionandconnection.myapplication.ListEnregistrements;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import com.example.mouna.inscriptionandconnection.myapplication.ListEnregistrements;
 
 /**
  * Created by Mouna on 26/03/2017.

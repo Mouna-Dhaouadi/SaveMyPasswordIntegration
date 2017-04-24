@@ -30,6 +30,10 @@
             android:name=".myapplication.AddActivity"
             android:label="@string/title_activity_add"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".myapplication.Site_liste"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".myapplication.DetaillActivity"
             android:label="@string/title_activity_detaill"
@@ -38,6 +42,7 @@
             android:name=".myapplication.ConfigActivity"
             android:label="@string/title_activity_config"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".myapplication.ListEnregistrements"
             android:theme="@style/AppTheme.NoActionBar" />

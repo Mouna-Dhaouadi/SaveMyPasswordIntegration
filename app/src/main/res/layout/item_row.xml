@@ -44,6 +44,6 @@
         android:layout_below="@+id/txttitle"
         android:layout_marginTop="5dp"
         android:text="TextView"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/bleu" />
 
 </RelativeLayout>

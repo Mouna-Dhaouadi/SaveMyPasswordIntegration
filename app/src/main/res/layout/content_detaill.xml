@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mouna.inscriptionandconnection.myapplication.DetaillActivity"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.imen.myapplication.DetaillActivity"
     tools:showIn="@layout/activity_detaill"
     android:orientation="vertical">
     <RelativeLayout
@@ -12,19 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="164dp"
         tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="8dp"
+        android:background="@color/colorPrimary">
 
         <com.pkmmte.view.CircularImageView
             android:id="@+id/imgDetaille"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@drawable/girl"
             app:border="true"
 
             app:border_color="#EEEEEE"
-            app:border_width="2dp" />
+            app:border_width="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="55dp" />
         <TextView
 
             android:layout_width="wrap_content"
@@ -32,7 +35,10 @@
             android:id="@+id/textSiteName"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/img" />
+            android:layout_below="@+id/imgDetaille"
+            android:textSize="18sp"
+            android:textColor="@android:color/background_light"
+            />
     </RelativeLayout>
 
 
@@ -57,17 +63,18 @@
                     android:src="@drawable/link"
                     android:id="@+id/imageViewLinkAdd"
 
-                    android:layout_weight="0.27" />
+                    android:layout_weight="0.31" />
 
                 <TextView
+                    android:id="@+id/editTextLinkAff"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:inputType="textPersonName"
-                    android:hint="@string/lien"
-                    android:textColor="@color/colorPrimary"
+                    android:layout_weight="0.76"
                     android:ems="10"
-                    android:id="@+id/editTextLinkAff"
-                    android:layout_weight="1" />
+                    android:hint="@string/lien"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/bleu"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -82,16 +89,17 @@
                     android:src="@drawable/login"
                     android:id="@+id/imageViewAdd"
 
-                    android:layout_weight="0.27" />
+                    android:layout_weight="0.38" />
 
                 <TextView
+                    android:id="@+id/editTextAff"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:inputType="textPersonName"
-                    android:hint="@string/login"
+                    android:layout_weight="0.91"
                     android:ems="10"
-                    android:id="@+id/editTextAff"
-                    android:layout_weight="1" />
+                    android:hint="@string/login"
+                    android:inputType="textPersonName"
+                    android:textSize="18sp" />
 
             </LinearLayout>
             <LinearLayout
@@ -105,16 +113,17 @@
                     android:src="@drawable/mail"
                     android:id="@+id/imageEmailAff"
 
-                    android:layout_weight="0.26" />
+                    android:layout_weight="0.41" />
 
                 <TextView
+                    android:id="@+id/editTextEmailAff"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:inputType="textEmailAddress"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/email"
-                    android:id="@+id/editTextEmailAff"
-                    android:layout_weight="1" />
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -129,21 +138,23 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
 
-                    android:src="@drawable/mdp" />
+                    android:src="@drawable/mdp"
+                    android:layout_weight="0.39" />
 
                 <TextView
+                    android:id="@+id/editPasswdAff"
                     android:layout_width="217dp"
                     android:layout_height="match_parent"
-                    android:hint="@string/motDP"
+                    android:layout_weight="0.51"
                     android:ems="10"
-                    android:id="@+id/editPasswdAff"
-                    android:layout_weight="0.68" />
+                    android:hint="@string/motDP"
+                    android:textSize="18sp" />
 
                 <CheckBox
                     android:id="@+id/checkBox"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.36"
+                    android:layout_weight="1.00"
 
                     android:paddingLeft="0dp" />
 
@@ -158,17 +169,20 @@
 
                 <ImageView
                     android:id="@+id/imageDateAff"
-                    android:layout_width="32dp"
+                    android:layout_width="70dp"
                     android:layout_height="32dp"
-                    android:src="@drawable/date" />
+                    android:src="@drawable/date"
+                    android:layout_weight="0.09" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/editDateAff"
+                    android:layout_width="298dp"
 
-                    android:hint="@string/dateModif"
+                    android:layout_height="match_parent"
                     android:ems="10"
-                    android:id="@+id/editDateAff" />
+                    android:hint="@string/dateModif"
+                    android:textAlignment="textStart"
+                    android:textSize="18sp" />
 
 
 

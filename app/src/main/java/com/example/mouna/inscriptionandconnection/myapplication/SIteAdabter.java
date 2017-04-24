@@ -4,28 +4,32 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.example.mouna.inscriptionandconnection.R;
+
 
 import java.util.List;
-import com.example.mouna.inscriptionandconnection.R;
+
 /**
- * Created by Imen on 28/03/2017.
+ * Created by Imen on 08/04/2017.
  */
 
-public class SIteAdabter  extends
-        RecyclerView.Adapter<SIteAdabter.ViewHolder> {
-    private List<SiteModel> mSites;
+public class SiteAdabter   extends
+        RecyclerView.Adapter<SiteAdabter.ViewHolder> {
+    private List<Site> mSites;
 
     private Context mContext;
 
-    SIteAdabter(Context c, List<SiteModel> l)
+    SiteAdabter(Context c, List<Site> l)
     {
         mContext=c;
         mSites=l;
+
     }
     private Context getContext() {
         return mContext;
@@ -47,7 +51,7 @@ public class SIteAdabter  extends
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        SiteModel site = mSites.get(position);
+        Site site = mSites.get(position);
 
         // Set item views based on your views and data model
         TextView textView = holder.nameTextView;
@@ -55,8 +59,7 @@ public class SIteAdabter  extends
         TextView linkView = holder.linkTextView;
         linkView.setText(site.link);
         ImageView iconView =holder.iconView;
-        Bitmap bmp = BitmapFactory.decodeByteArray(site.icon, 0, site.icon.length);
-        iconView.setImageBitmap(bmp);
+        iconView.setImageBitmap(BitmapFactory.decodeByteArray(site.icon, 0, site.icon.length));
 
     }
 
@@ -87,5 +90,6 @@ public class SIteAdabter  extends
             iconView = (ImageView) itemView.findViewById(R.id.iconImg);
         }
     }
+
 
 }

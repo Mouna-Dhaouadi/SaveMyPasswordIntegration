@@ -9,22 +9,25 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import com.example.mouna.inscriptionandconnection.R;
 
-
 public class ConfigActivity extends AppCompatActivity {
-     SiteModel msite;
+     Enregistrement msite;
     ImageView icon ;
-    EditText nom,lien,login,passwd,email;
+    EditText login,passwd,email;
     ProgressBar bar;
-    TextView affMdp;
+    TextView affMdp,nom,lien;
     ImageButton refresh;
+    Button button;
     boolean clicked1=false;
     GenererMdp gn= new GenererMdp();
     @Override
@@ -35,14 +38,26 @@ public class ConfigActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
-         msite = (SiteModel) intent.getExtras().getSerializable("siteDetaille");
+         msite = (Enregistrement) intent.getExtras().getSerializable("siteDetaille");
         afficher_Site(msite);
         passwd.setOnClickListener(new Mdp_Click() );
         passwd.addTextChangedListener(new Mdp_Text_Change() );
         refresh.setOnClickListener(new Refresh_Click());
         affMdp.setOnClickListener(new CopierMdp());
+        button.setOnClickListener(new UpdateEnrg());
 
+    }
+    class UpdateEnrg implements View.OnClickListener{
 
+        @Override
+        public void onClick(View v) {
+            String d= new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
+            Enregistrement e = new Enregistrement(msite.name,msite.link, d,passwd.getText().toString(),login.getText().toString(),
+                    email.getText().toString(),msite.SiteID,msite.icon);
+            ListEnregistrements.db.updateEnregistrement(e,msite.SiteID);
+            Intent myIntent = new Intent( ConfigActivity.this,ListEnregistrements.class);
+            startActivity(myIntent);
+        }
     }
     class CopierMdp implements View.OnClickListener{
 
@@ -92,11 +107,11 @@ public class ConfigActivity extends AppCompatActivity {
             new EvaluerMdp().evaluer(passwd.getText().toString(),bar);
         }
     }
-    void afficher_Site(SiteModel s)
+    void afficher_Site(Enregistrement s)
     {
         icon=(ImageView)findViewById(R.id.imgM);
-        lien=(EditText) findViewById(R.id.editTextLinkM);
-        nom=(EditText) findViewById(R.id.textSiteNameM);
+        lien=(TextView) findViewById(R.id.editTextLinkM);
+        nom=(TextView) findViewById(R.id.textSiteNameM);
         login=(EditText) findViewById(R.id.editTextM);
         passwd=(EditText) findViewById(R.id.editPasswdM);
         bar=(ProgressBar)findViewById(R.id.progressBar) ;
@@ -105,13 +120,14 @@ public class ConfigActivity extends AppCompatActivity {
         refresh =(ImageButton) findViewById(R.id.refresh);
         affMdp=(TextView)findViewById(R.id.textViewM);
 
+
         lien.setText(s.link);
         nom.setText(s.name);
         login.setText(s.login);
         passwd.setText(s.passwd);
         email.setText(s.memail);
 
-
+        button=(Button)findViewById(R.id.BAjout);
 
         Bitmap bmp = BitmapFactory.decodeByteArray(s.icon, 0, s.icon.length);
         icon.setImageBitmap(bmp);

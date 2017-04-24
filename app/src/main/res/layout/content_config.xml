@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mouna.inscriptionandconnection.myapplication.ConfigActivity"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.imen.myapplication.ConfigActivity"
     tools:showIn="@layout/activity_config">
 
         <RelativeLayout
@@ -13,12 +14,13 @@
             android:layout_width="match_parent"
             android:layout_height="164dp"
             tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp">
+            tools:layout_editor_absoluteX="8dp"
+            android:background="@color/colorPrimary">
 
             <com.pkmmte.view.CircularImageView
                 android:id="@+id/imgM"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/girl"
@@ -26,14 +28,21 @@
 
                 app:border_color="#EEEEEE"
                 app:border_width="2dp" />
-            <EditText
-                android:hint="@string/NomSite"
+
+            <TextView
+                android:id="@+id/textSiteNameM"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:id="@+id/textSiteNameM"
+                android:layout_alignEnd="@+id/imgM"
+                android:layout_alignLeft="@+id/imgM"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/img" />
+                android:layout_alignRight="@+id/imgM"
+                android:layout_alignStart="@+id/imgM"
+                android:layout_below="@+id/imgM"
+                android:hint="@string/NomSite"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textStyle="bold" />
         </RelativeLayout>
 
 
@@ -57,18 +66,18 @@
                         android:layout_height="32dp"
                         android:src="@drawable/link"
                         android:id="@+id/imageViewLinkAdd"
-
                         android:layout_weight="0.27" />
 
-                    <EditText
+                    <TextView
+                        android:id="@+id/editTextLinkM"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:inputType="textPersonName"
-                        android:hint="@string/lien"
-
+                        android:layout_weight="1"
                         android:ems="10"
-                        android:id="@+id/editTextLinkM"
-                        android:layout_weight="1" />
+                        android:hint="@string/lien"
+                        android:textSize="18sp"
+                        android:textColor="@color/bleu"
+                        />
 
                 </LinearLayout>
 
@@ -83,7 +92,7 @@
                         android:src="@drawable/login"
                         android:id="@+id/imageViewAdd"
 
-                        android:layout_weight="0.27" />
+                        android:layout_weight="0.44" />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -106,7 +115,7 @@
                         android:src="@drawable/mail"
                         android:id="@+id/imageEmailAdd"
 
-                        android:layout_weight="0.26" />
+                        android:layout_weight="0.43" />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -127,7 +136,7 @@
 
                     <ImageView
                         android:id="@+id/imagepasswrdAdd"
-                        android:layout_width="32dp"
+                        android:layout_width="72dp"
                         android:layout_height="32dp"
                         android:src="@drawable/mdp" />
 
@@ -162,8 +171,8 @@
                         android:layout_width="145dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.98"
-                        android:visibility="invisible"
-                        />
+                        android:textAlignment="center"
+                        android:visibility="invisible" />
 
                     <ImageButton
                         android:id="@+id/refresh"
@@ -183,7 +192,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/Ajouter"
                     android:layout_marginLeft="115dp"
-                    android:shadowRadius="0"/>
+                    android:shadowRadius="0"
+                    android:id="@+id/BAjout"/>
 
 
 
