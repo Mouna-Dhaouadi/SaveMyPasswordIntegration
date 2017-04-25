@@ -303,7 +303,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void initialiseSite( Resources drawable)
     {
         addSite(new Site("PayPal","www.paypal.com",getIcon(BitmapFactory.decodeResource( drawable, R.drawable.paypal))));
-        addSite(new Site("Amazon","www.paypal.com",getIcon(BitmapFactory.decodeResource( drawable, R.drawable.amazon))));
+        addSite(new Site("Amazon","www.amazon.com",getIcon(BitmapFactory.decodeResource( drawable, R.drawable.amazon))));
         addSite(new Site("Drop Box","www.dropbox.com",getIcon(BitmapFactory.decodeResource( drawable, R.drawable.dropbox))));
         addSite(new Site("Facebook","www.facebook.com",getIcon(BitmapFactory.decodeResource( drawable, R.drawable.facebook))));
         addSite(new Site("Google +","www.gmail.com",getIcon(BitmapFactory.decodeResource( drawable, R.drawable.google))));

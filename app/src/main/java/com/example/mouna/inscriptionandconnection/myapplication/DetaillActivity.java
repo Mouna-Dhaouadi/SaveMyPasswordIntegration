@@ -69,22 +69,28 @@ public class DetaillActivity extends AppCompatActivity {
         });
        lien.setOnClickListener(new redireger(msite.link));
     }
+
+
+
     class redireger implements View.OnClickListener
     {
         String url;
-  redireger(String l)
-  {
-      this.url=l;
-  }
+        redireger(String l)
+        {
+            this.url=l;
+        }
         @Override
         public void onClick(View v) {
-            /*if (! url.startsWith("http://") && !url.startsWith("https://"))
-                url = "http://" + url;*/
+            if (! url.startsWith("http://") && !url.startsWith("https://"))
+                url = "http://" + url;
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(browserIntent);
 
         }
     }
+
+
+
     void afficher_Site(Enregistrement s)
     {
         icon=(ImageView)findViewById(R.id.imgDetaille);
